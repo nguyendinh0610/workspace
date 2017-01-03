@@ -1,0 +1,70 @@
+package ArraysAndStrings;
+
+import java.util.*;
+
+public class Permutation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String s1 = sc.nextLine();
+		String s2 = sc.nextLine();
+		sc.close();
+		System.out.println(checkPermutation(s1, s2));
+	}
+	
+	private static boolean checkPermutation(String s1, String s2){
+		if (checkInput(s1, s2)){
+			HashMap<Integer, Integer> ht = new HashMap<Integer, Integer>();
+			int key;
+			
+			// Count each char, convert to int then put into the hash table
+			for (char c : s1.toCharArray()){
+				key = c - 'a';
+				if (ht.containsKey(key)){
+					int currentCount = ((Integer)ht.get(key)).intValue();
+					ht.put(key, new Integer(currentCount + 1));
+				} else {
+					ht.put(key, new Integer(1));
+				}
+			}
+			
+			// Remove each char found, if not, return false
+			// If the count is zero, remove the key:value pair
+			for (char c : s2.toCharArray()){
+				key = c - 'a';
+				if (ht.containsKey(key)){
+					int currentCount = ((Integer)ht.get(key)).intValue();
+					if (currentCount < 1){
+						return false;
+					} else {
+						if (currentCount - 1 == 0){
+							ht.remove(key);
+						} else {
+							ht.put(key, new Integer(currentCount - 1));
+						}
+					}
+				} else {
+					return false;
+				}
+			}
+			// Make sure nothing left in the hash table
+			if (ht.isEmpty()){
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
+	private static boolean checkInput(String s1, String s2){
+		if (s1.length() != s2.length()){
+			return false;
+		}
+		return true;
+	}
+}
+
+// easiest way is to sort the strings. Sort both of them then use 'equal'

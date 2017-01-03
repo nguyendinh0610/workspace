@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class UniqCharInString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String s = "";
+		if (sc.hasNext()){
+			s = sc.nextLine();
+		}
+		sc.close();
+		if (checkStringInput(s)){
+			System.out.println(checkString(s));
+		} else {
+			System.out.println("Invalid input.");
+		}
+		
+	}
+	
+	private static boolean checkString(String s){
+		char[] charArr = s.toCharArray();
+		if (charArr.length == 1){
+			return true;
+		}
+		for (int i = 0; i < charArr.length - 1; i ++){
+			for (int j = i + 1; j < charArr.length; j ++){
+				if (charArr[i] == charArr[j]){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	private static boolean checkStringInput(String s){
+		return true;
+	}
+
+}

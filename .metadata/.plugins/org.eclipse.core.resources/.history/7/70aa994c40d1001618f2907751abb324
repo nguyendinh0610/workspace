@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Permutation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String s1 = sc.nextLine();
+		String s2 = sc.nextLine();
+		System.out.println(checkPermutation(s1, s2));
+	}
+	
+	private static boolean checkPermutation(String s1, String s2){
+		if (checkInput(s1, s2)){
+			HashMap ht = new HashMap();
+			for (char c : s1.toCharArray()){
+				if (ht.containsKey(c)){
+					int currentCount = ((Integer)ht.get(c)).intValue();
+					ht.put(c, new Integer(currentCount + 1));
+				} else {
+					ht.put(c, new Integer(1));
+				}
+			}
+			for (char c : s2.toCharArray()){
+				if (ht.containsKey(c)){
+					int currentCount = ((Integer)ht.get(c)).intValue();
+					if (currentCount < 1){
+						return false;
+					} else {
+						ht.put(c, new Integer(currentCount - 1));
+					}
+				} else {
+					return false;
+				}
+			}
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	private static boolean checkInput(String s1, String s2){
+		return true;
+	}
+
+}

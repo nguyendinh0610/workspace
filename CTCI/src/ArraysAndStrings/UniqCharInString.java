@@ -1,0 +1,55 @@
+package ArraysAndStrings;
+
+import java.util.*;
+
+public class UniqCharInString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String s = "";
+		if (sc.hasNext()){
+			s = sc.nextLine();
+		}
+		sc.close();
+		if (checkStringInput(s)){
+			System.out.println(checkString(s));
+		} else {
+			System.out.println("Invalid input.");
+		}
+		
+	}
+	
+	private static boolean checkString(String s){
+		if (s.length() == 1){
+			return true;
+		} else {
+			// Only a limited number of unique chars
+			if (s.length() > 256){
+				return false;
+			}
+		}
+		
+		boolean[] char_set = new boolean[256];
+		
+		for (int i = 0; i < s.length(); i ++){
+			
+			// convert char to int index for char_set
+			int val = s.charAt(i);
+			
+			// If the val exists (true), return false
+			if (char_set[val]){
+				return false;
+			}
+			
+			// If not, switch it to true
+			char_set[val] = true;
+		}
+		return true;
+	}
+	
+	private static boolean checkStringInput(String s){
+		return true;
+	}
+
+}
