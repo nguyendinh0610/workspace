@@ -1,0 +1,31 @@
+package ArraysAndStrings;
+
+import java.util.*;
+
+public class StringReplacement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String s = sc.nextLine();
+		sc.close();
+		char c = ' ';
+		s.replaceAll(Character.toString(c), "%20");
+		System.out.println(s);
+	}
+	
+	private static String replaceSpaceFromString(String s){
+		String result = "";
+		StringBuilder sb = new StringBuilder();
+		for (char c : s.toCharArray()){
+			if (c == ' '){
+				result.concat("%20");
+			} else {
+				result.concat(Character.toString(c));
+			}
+		}
+		
+		return result;
+	}
+
+}

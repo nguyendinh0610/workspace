@@ -1,0 +1,26 @@
+package ArraysAndStrings;
+
+import java.util.*;
+
+public class CompressString {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		String s = sc.nextLine();
+		System.out.println(compressString(s));
+	}
+	
+	private static String compressString(String s){
+		int count = 0;
+		char prevChar;
+		StringBuilder sb = new StringBuilder();
+		for (char c : s.toCharArray()){
+			if (s.indexOf(c) == 0){
+				prevChar = c;
+			} else {
+				
+			}
+		}
+		
+		return s;
+	}
+}
