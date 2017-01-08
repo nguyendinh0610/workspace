@@ -1,0 +1,13 @@
+package ArraysAndStrings;
+
+import java.util.*;
+
+public class ZeroInMatrix {
+	public static void Main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int m = sc.nextInt();
+		int n = sc.nextInt();
+		sc.nextLine();
+		
+	}
+}

@@ -26,15 +26,9 @@ public class PictureRotation {
 	}
 	
 	private static void rotatePicture(int[][] pic){
-		// A layer is one pixel width square from the center
-		// the total number of layers are roughly the length/2
 		for (int layer = 0; layer < pic.length/2; layer++){
-			// The position of the first pixel of a layer
 			int first = layer;
-			
-			// The position of the last pixel of a layer
-			int last = pic.length - 1 - layer;
-			
+			int last = pic.length -1 - layer;
 			for (int i = first; i < last; i++){
 				int offset = i - first;
 				
