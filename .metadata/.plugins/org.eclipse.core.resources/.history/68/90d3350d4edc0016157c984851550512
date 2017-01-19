@@ -1,0 +1,10 @@
+package LinkedList;
+
+import java.lang.reflect.Method;
+import java.util.*;
+
+public class DuplicationElimination {
+	public static void main(String[] args){
+		
+	}
+}
