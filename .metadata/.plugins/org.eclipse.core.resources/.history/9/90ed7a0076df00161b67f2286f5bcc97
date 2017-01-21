@@ -1,0 +1,26 @@
+package LinkedList;
+
+import java.util.*;
+
+public class LinkedListPartitioning {
+	public static void main(String[] args){
+		
+	}
+	
+	class Node{
+		int data;
+		Node next = null;
+		
+		public Node(int value){
+			data = value;
+		}
+		
+		public void partitionLinkedList(Node head, int i){
+			if (head == null){
+				return;
+			}
+			
+			
+		}
+	}
+}

@@ -1,0 +1,55 @@
+package LinkedList;
+
+import java.util.*;
+
+public class LinkedListPartitioning {
+	public static void main(String[] args){
+		
+	}
+	
+	class Node{
+		int data;
+		Node next = null;
+		
+		public Node(int value){
+			data = value;
+		}
+		
+		public Node appendToEnd(int d){
+			Node current = this;
+			Node end = new Node(d);
+			while (current.next != null){
+				current = current.next;
+			}
+			current.next = end;
+			return end;
+		}
+		
+		public Node appendToFront(Node head, int d){
+			Node front = new Node(d);
+			front.next = head;
+			return front;
+		}
+		
+		// Assumption: the node is always there
+		public Node partitionLinkedList(Node head, int i){
+			if (head == null){
+				return null;
+			}
+			
+
+			Node newHead = new Node(i);
+			
+			while (head.next != null){
+				head = head.next;
+				if (head.data < i) {
+					newHead = newHead.appendToFront(newHead, head.data);
+				} else {
+					newHead.appendToEnd(head.data);
+				}
+			}
+			
+			return newHead;
+		}
+	}
+}
